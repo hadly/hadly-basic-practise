@@ -9,9 +9,9 @@ import java.net.URL;
 public class ClassLoaderTest {
     public static void main(String[] args) throws Exception {
 //        test01();
-//        test02();
+        test02();
 //        test03();
-        test04();
+//        test04();
 
     }
 
@@ -70,8 +70,12 @@ public class ClassLoaderTest {
 
     }
 
-    //TODO:注意，在运行之前，需要将E:\workspace\eclipse\hadly-test\bin\com\hadly\classloader目录
-    //  下的Person.class删除掉，否则会被sun.misc.Launcher$AppClassLoader加载进来
+    /**
+     * TODO:注意，在运行之前，需要将E:\workspace\eclipse\hadly-test\bin\com\hadly\classloader目录
+     * 下的Person.class删除掉，否则会被sun.misc.Launcher$AppClassLoader加载进来
+     * TODO: 同时需要将Person.class放到d:\\下面，因为MyClassloader会默认从那儿查找
+     * @throws Exception
+     */
     private static void test02() throws Exception {
         MyClassLoader classLoader = new MyClassLoader();
         Class<?> clazz = Class.forName("com.hadly.classloader.Person", true, classLoader);
