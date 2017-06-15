@@ -5,6 +5,7 @@ import java.net.URL;
 
 /**
  * Created by hadly on 2017/2/15.
+ * 示例见：http://www.cnblogs.com/szlbm/p/5504631.html
  */
 public class ClassLoaderTest {
     public static void main(String[] args) throws Exception {
@@ -12,7 +13,7 @@ public class ClassLoaderTest {
         test02();
 //        test03();
 //        test04();
-
+        test05();
     }
 
     private static void test04() {
@@ -100,5 +101,11 @@ public class ClassLoaderTest {
         if (null != o) {
             System.out.println(o);
         }
+    }
+
+    private static void test05(){
+        //虚拟机启动时加载，加载的是JAVA_HOME/lib/下的rt.jar下的.class文件,
+        //设置虚拟机参数为"-XX:+TraceClassLoading"来获取类加载信息
+        System.out.println("test05");
     }
 }

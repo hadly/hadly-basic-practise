@@ -11,5 +11,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.sun.jdmk:jmxtools:1.2" level="project" />
+    <orderEntry type="library" name="jmxtools" level="project" />
   </component>
 </module>
