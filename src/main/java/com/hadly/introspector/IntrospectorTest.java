@@ -106,7 +106,7 @@ public class IntrospectorTest {
     }
 
     private static Map<String, Object> getParameterMap() {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<String, Object>();
         map.put("name", "zhangsan");
         map.put("age", "34");
         Address address = new Address();
