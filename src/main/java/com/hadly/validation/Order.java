@@ -3,12 +3,14 @@ package com.hadly.validation;
 import com.hadly.validation.annotation.OrderConstraint;
 import com.hadly.validation.annotation.Status;
 import com.hadly.validation.annotation.UniConstraint;
+import com.hadly.validation.group.Group1;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.validation.groups.Default;
 import java.util.Date;
 
 /**
@@ -19,7 +21,7 @@ public class Order {
     /**
      * 错误信息会默认使用这里的message，如果没有，才从注解的default中获取
      * 1.${validatedValue}表示orderId的值，比如12345678987654321。validatedValue这个名字
-     *   是规定的，不能随意改动
+     * 是规定的，不能随意改动
      */
     @NotNull
     @Size(min = 10, max = 10, message = "${validatedValue} 长度在{min} {max}之间")
@@ -38,7 +40,12 @@ public class Order {
     @NotNull
     @Status
     private String status;
-    @NotNull
+
+    /**
+     * 1.这个字段如果只标注了Group1，那么默认的Default Group就不会校验
+     * 2.添加多个group，就都会校验
+     */
+    @NotNull(groups = {Group1.class, Default.class})
     private Date createDate;
     /**
      * TODO

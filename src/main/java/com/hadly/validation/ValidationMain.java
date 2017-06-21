@@ -1,5 +1,7 @@
 package com.hadly.validation;
 
+import com.hadly.validation.group.Group1;
+
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -38,6 +40,16 @@ public class ValidationMain {
         Validator validator = factory.getValidator();
 
         Set<ConstraintViolation<Order>> violations = validator.validate(order);
+        printViolations(violations);
+        System.out.println("");
+
+        //下面这个只会校验标注了Group1的字段
+        Set<ConstraintViolation<Order>> groupViolations = validator.validate(order, Group1.class);
+        printViolations(groupViolations);
+
+    }//main
+
+    private static void printViolations(Set<ConstraintViolation<Order>> violations) {
         if (violations.size() == 0) {
             System.out.println("validation success.");
             return;
@@ -49,5 +61,5 @@ public class ValidationMain {
             sb.append(violation.getMessage()).append(" | ");
         }
         System.out.println("validation result=" + sb.toString());
-    }//main
+    }
 }
