@@ -23,7 +23,27 @@ public class IntrospectorTest {
 //        copyProperties();
 //        copyPropertiesUsingBeanUtils();
 //        anotherWayToIntrospect();
-        cascadeExample();
+//        cascadeExample();
+        normalBeanCopy();
+    }
+
+    private static void normalBeanCopy(){
+        Student student = new Student();
+        student.setName("name1");
+        student.setAge(1);
+
+        //NOTE: Student1里面age即便叫age111，也可以复制成功，因为Java的Introspect默认用getter setter来拷贝的
+        Student1 student1 = new Student1();
+        System.out.println("student=" + student + ", student1=" + student1);
+
+        try {
+            BeanUtils.copyProperties(student1, student);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        System.out.println("student=" + student + ", student1=" + student1);
     }
 
     /**
