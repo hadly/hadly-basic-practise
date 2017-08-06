@@ -7,11 +7,22 @@ import java.lang.reflect.Method;
  * Created by hadly on 2017/2/15.
  */
 public class ReflectTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 //        getName();
 //        test();
 //        initializeClass();
-        callMethod();
+//        callMethod();
+        callPrivateMethod();
+    }
+
+    private static void callPrivateMethod() throws Exception{
+        Class clazz = Demo.class;
+        //不能用getMethod()，只能获取public的方法
+        Method method = clazz.getDeclaredMethod("privateMethod", int.class, String.class);
+        //这个如果不设置，会提示 can not access a member of class com.hadly.reflect.Demo with modifiers "private"
+        //如果JVM设置了安全限制，会抛异常
+        method.setAccessible(true);
+        method.invoke(clazz.newInstance(), 10, "privateStr");
     }
 
     //只知道类名com.hadly.reflect.Demo，想调用类里面的某个方法：
