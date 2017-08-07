@@ -7,7 +7,8 @@ package com.hadly.juc.consumerproducer;
  * --0继续生产
  * --...
  *
- * --TODO 用notify应该是有问题，但没太想透彻
+ * --TODO 用notify应该是有问题，但没太想透彻；将两个方法中的notify换成notifyAll就不会有问题
+ * --TODO notifyAll会通知到所有的线程，所以不会有问题
  *
  * Thread-1生产者------------32
  * Thread-0生产者invoked 32
@@ -52,7 +53,8 @@ public class Clerk4 implements IClerk {
         number++;//生产一个
         System.out.println(Thread.currentThread().getName() + "生产者------------" + number);
         flag = true;//将资源标记为已经生产
-        notify();//唤醒在等待操作资源的线程（队列）
+//        notify();//唤醒在等待操作资源的线程（队列）
+        notifyAll();//TODO 用notifyAll不会有问题
     }
 
     /**
@@ -71,6 +73,7 @@ public class Clerk4 implements IClerk {
 
         System.out.println(Thread.currentThread().getName() + "消费者**** " + number);
         flag = false;
-        notify();
+//        notify();
+        notifyAll();//TODO 用notifyAll不会有问题
     }
 }

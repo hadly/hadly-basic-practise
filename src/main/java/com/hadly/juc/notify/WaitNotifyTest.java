@@ -4,6 +4,9 @@ import java.util.Date;
 
 /**
  * Created by hadly on 2017/8/5.
+ * 验证notify和notifyAll的区别：
+ * 1.notify只会通知wait的其中一个线程
+ * 2.notifyAll会通知wait的所有线程，这些线程会争用CPU，但是最终会得到执行
  */
 public class WaitNotifyTest {
     private static final Object obj = new Object();
@@ -18,8 +21,8 @@ public class WaitNotifyTest {
         }
 
         Thread.sleep(2000);
-        notifyTest();
-//        notifyAllTest();
+//        notifyTest();
+        notifyAllTest();
     }
 
     /**
