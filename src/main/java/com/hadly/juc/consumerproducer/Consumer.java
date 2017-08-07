@@ -11,7 +11,7 @@ public class Consumer implements Runnable {
     }
 
     public void run() {
-        System.out.println("消费者开始取走产品.");
+        System.out.println("消费者开始取走产品. " + Thread.currentThread().getName());
         while (true) {
             try {
 //                Thread.sleep((int) (Math.random() * 10) * 100);

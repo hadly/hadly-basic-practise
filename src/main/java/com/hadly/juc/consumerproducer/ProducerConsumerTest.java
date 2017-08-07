@@ -14,7 +14,6 @@ public class ProducerConsumerTest {
      */
     public static void main(String[] args) {
         IClerk clerk = getClerk();
-
         beginTest(clerk);
     }
 
@@ -23,8 +22,7 @@ public class ProducerConsumerTest {
      * @return
      */
     private static IClerk getClerk(){
-        return new Clerk1();
-        //TODO：添加新的Clerk实现
+        return new ClerkComplicated();
     }
 
     private static void beginTest(IClerk clerk){

@@ -9,7 +9,7 @@ package com.hadly.juc.consumerproducer;
  * http://www.cnblogs.com/myhomepages/archive/2016/11/03/6028663.html 不断改进
  * http://blog.csdn.net/monkey_d_meng/article/details/6251879/ 3种实现方法实践
  */
-public class Clerk1 implements IClerk {
+public class ClerkComplicated implements IClerk {
     //最大产品数
     private static final int MAX_PRODUCT = 20;
     //最小产品数
@@ -17,10 +17,16 @@ public class Clerk1 implements IClerk {
     //默认为0个产品
     private int product = 0;
 
+    public static void main(String[] args){
+        IClerk clerk = new ClerkComplicated();
+        new Thread(new Producer(clerk)).start();
+        new Thread(new Consumer(clerk)).start();
+    }
+
     /**
      * 生产者生产出来的产品交给店员
      */
-    public synchronized void addProduect() {
+    public synchronized void addProduct() {
         System.out.println("begin to addProduct.");
         if (this.product >= MAX_PRODUCT) {
             try {

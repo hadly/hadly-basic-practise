@@ -11,7 +11,7 @@ public class Producer implements Runnable {
     }
 
     public void run() {
-        System.out.println("生产者开始生产产品.");
+        System.out.println("生产者开始生产产品. " + Thread.currentThread().getName());
         while (true) {
             try {
 //                Thread.sleep((int) (Math.random() * 10) * 100);
@@ -19,7 +19,7 @@ public class Producer implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            clerk.addProduect(); //生产产品
+            clerk.addProduct(); //生产产品
         }
     }
 }
