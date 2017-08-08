@@ -3,7 +3,8 @@ package com.hadly.gc;
 /**
  * Created by hadly on 2017/8/4.
  * 1.推荐使用的GC参数配置
- *   -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Xloggc:barcode-gc.log
+ * -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -XX:+UseConcMarkSweepGC -Xloggc:/data/dataLogs/gc/barcode-gc.log
+ * -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/data/dataLogs/dump/barcode.dump
  * 2.
  */
 public class PrintGCTest {
@@ -13,7 +14,8 @@ public class PrintGCTest {
 
     private static void testPrintGC() {
         for (int i = 0; i <= 100; i++) {
-            byte[] bytes = new byte[1024*1024*1024];
+            long oneG = 1024 * 1024 * 1024 * 1024;
+            byte[] bytes = new byte[1024 * 1024 * 1024 * 1024];
             String str = new Object().toString() + "  " + i;
             System.out.println(str);
             try {

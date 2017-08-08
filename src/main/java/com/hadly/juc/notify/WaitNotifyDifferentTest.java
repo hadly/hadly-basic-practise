@@ -8,7 +8,7 @@ import java.util.Date;
  * 1.notify只会通知wait的其中一个线程
  * 2.notifyAll会通知wait的所有线程，这些线程会争用CPU，但是最终会得到执行
  */
-public class WaitNotifyTest {
+public class WaitNotifyDifferentTest {
     private static final Object obj = new Object();
 
     public static void main(String[] args) throws Exception {
