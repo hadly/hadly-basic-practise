@@ -2,7 +2,8 @@ package com.hadly.juc.deadlock;
 
 /**
  * Created by hadly on 2017/8/5.
- * 两个方法，按照不同的加锁顺序，加锁lock1和lock2，会导致死锁
+ * 1.两个线程各自持有一把锁，同时都想要获取对方持有的锁的时候就会出现死锁问题
+ * 2.避免方法：多个线程按照相同的顺序获取和释放锁
  */
 public class Consumer {
 
