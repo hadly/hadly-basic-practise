@@ -7,6 +7,18 @@
     <groupId>com.hadly</groupId>
     <artifactId>hadly-basic-practise</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <!--HtmlAdaptorServer使用到了该包（虽然加了，但是没用，因为在maven找不到jar包）-->

@@ -204,7 +204,7 @@
 //	    throw new TTransportException("Not a Thrift service client class.");
 //	}
 //	InnerClient<T> client = new InnerClient<T>();
-//	Handler<T> handler = new Handler<T>(client, serviceIfaceClass, serviceClientClass, serviceServerHost, serviceServerPort, socketTimeout, numTries, retryDelay);
+//	AbstractHandler<T> handler = new AbstractHandler<T>(client, serviceIfaceClass, serviceClientClass, serviceServerHost, serviceServerPort, socketTimeout, numTries, retryDelay);
 //	T iface = (T) Proxy.newProxyInstance(serviceClientClass.getClassLoader(), new Class[]{serviceIfaceClass}, handler);
 //	client.setIface(iface);
 //	return client;
@@ -404,7 +404,7 @@
 //    /**
 //     * Invocation handler.
 //     */
-//    private static class Handler<T> implements InvocationHandler {
+//    private static class AbstractHandler<T> implements InvocationHandler {
 //
 //	private InnerClient client;
 //	private Class<T> ifaceClass;
@@ -416,7 +416,7 @@
 //	private int delay;
 //	private T targetIface;
 //
-//	public Handler(InnerClient<T> client, Class<T> serviceIfaceClass, Class<? extends T> serviceClientClass,
+//	public AbstractHandler(InnerClient<T> client, Class<T> serviceIfaceClass, Class<? extends T> serviceClientClass,
 //		       String serviceServerHost, int serviceServerPort, int socketTimeout, int numTries, int retryDelay) {
 //	    this.client = client;
 //	    this.ifaceClass = serviceIfaceClass;
