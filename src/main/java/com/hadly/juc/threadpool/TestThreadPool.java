@@ -8,6 +8,9 @@ package com.hadly.juc.threadpool;
 
 import utils.MethodUtil;
 
+import java.util.WeakHashMap;
+import java.util.concurrent.BlockingQueue;
+
 /**
  *
  * @author lizhinian

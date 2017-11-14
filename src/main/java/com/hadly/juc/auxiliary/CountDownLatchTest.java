@@ -7,6 +7,7 @@ import java.util.concurrent.CountDownLatch;
  * 1.Java并发编程：CountDownLatch、CyclicBarrier和 Semaphore
  * 见http://www.importnew.com/21889.html
  * 2.有一个任务A，它要等待其他4个任务执行完毕之后才能执行，此时就可以利用CountDownLatch来实现这种功能了
+ * 3.简化了传统的用计数器+wait/notifyAll来实现该功能的方式
  */
 public class CountDownLatchTest {
     public static void main(String[] args) {
