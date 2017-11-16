@@ -5,6 +5,10 @@ package com.hadly.pattern.chain;
  */
 public class ConcreteHandler1 extends AbstractHandler {
 
+    /**
+     * 具体处理者如果能处理request，就处理，处理不了就传递给后继进行处理
+     * @param request 是具体要处理的内容
+     */
     public void handleRequest(int request) {
         if (request > 0 & request < 10) {
             System.out.println("处理了" + this.getClass().getName() + ", request=" + request);

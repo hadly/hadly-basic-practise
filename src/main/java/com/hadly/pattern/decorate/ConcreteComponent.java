@@ -1,6 +1,7 @@
 package com.hadly.pattern.decorate;
 
 /**
+ * 具体的被装饰对象
  * Created by hadly on 2017/11/1.
  */
 public class ConcreteComponent implements IComponent{

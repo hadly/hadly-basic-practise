@@ -1,20 +1,16 @@
-package com.hadly.pattern;
+package com.hadly.pattern.strategy;
 
 import com.hadly.pattern.strategy.*;
 
 /**
  * Created by hadly on 2017/10/31.
  */
-public class MainTest {
+public class StragegyTest {
     public static void main(String[] args) {
         //1.策略模式
         testStrategySimple();
         testStrategyWithoutFactory();
         testStrategyCombinedWithFactory();
-
-        //2.
-
-        //3.
     }
 
     public static void testStrategySimple() {
