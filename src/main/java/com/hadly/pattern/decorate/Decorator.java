@@ -8,7 +8,8 @@ public class Decorator implements IComponent {
     private IComponent component;
 
     /**
-     * 该方法用于设置被装饰对象
+     * 该方法用于设置被装饰对象;对对象进行包装；
+     * 每个装饰对象只关心自己的功能，不需要关心如何被添加到对象链当中
      * @param component
      */
     public void decorate(IComponent component) {
