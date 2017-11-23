@@ -2,7 +2,7 @@ package com.hadly.juc.consumerproducer;
 
 /**
  * Created by hadly on 2017/7/24.
- * 1.wait()、notify()、notifyAll()方法
+ * 1.wait()、notifyTo()、notifyAll()方法
  * 2.这些方法只有在synchronized或synchronized代码块中才能使用，
  * 否则会报java.lang.IllegalMonitorStateException异常
  * 3.另外线程执行了某对象的notify方法之后，会唤醒在此对象等待池中的某个线程，使之成为可运行线程。
