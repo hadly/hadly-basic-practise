@@ -22,11 +22,11 @@
 
     <dependencies>
         <!--HtmlAdaptorServer使用到了该包（虽然加了，但是没用，因为在maven找不到jar包）-->
-        <dependency>
-            <groupId>com.sun.jdmk</groupId>
-            <artifactId>jmxtools</artifactId>
-            <version>1.2</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.sun.jdmk</groupId>-->
+            <!--<artifactId>jmxtools</artifactId>-->
+            <!--<version>1.2</version>-->
+        <!--</dependency>-->
 
         <!--Bean拷贝-->
         <dependency>
